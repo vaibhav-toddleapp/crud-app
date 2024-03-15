@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import Login from '../Login';
-import Dashboard from '../Dashboard';
+import Login from "../Login";
+import Dashboard from "../Dashboard";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
-
-  useEffect(() => {
-    setIsAuthenticated(JSON.parse(localStorage.getItem('is_authenticated')));
-  }, []);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
     <>
-      {isAuthenticated ? (
-        <Dashboard setIsAuthenticated={setIsAuthenticated} />
-      ) : (
-        <Login setIsAuthenticated={setIsAuthenticated} />
-      )}
+      <Dashboard setIsAuthenticated={setIsAuthenticated} />
     </>
   );
 };

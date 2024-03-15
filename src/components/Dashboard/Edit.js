@@ -62,6 +62,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           name="firstName"
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
+          data-test-id="employee-form-first-name-input"
         />
         <label htmlFor="lastName">Last Name</label>
         <input
@@ -70,6 +71,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           name="lastName"
           value={lastName}
           onChange={e => setLastName(e.target.value)}
+          data-test-id="employee-form-last-name-input"
         />
         <label htmlFor="email">Email</label>
         <input
@@ -78,6 +80,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
+          data-test-id="employee-form-email-input"
         />
         <label htmlFor="salary">Salary ($)</label>
         <input
@@ -86,6 +89,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           name="salary"
           value={salary}
           onChange={e => setSalary(e.target.value)}
+          data-test-id="employee-form-salary-input"
         />
         <label htmlFor="date">Date</label>
         <input
@@ -94,15 +98,17 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           name="date"
           value={date}
           onChange={e => setDate(e.target.value)}
+          data-test-id="employee-form-date-input"
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Update" />
+          <input type="submit" value="Update" data-test-id={"employee-form-update-button"}/>
           <input
             style={{ marginLeft: '12px' }}
             className="muted-button"
             type="button"
             value="Cancel"
             onClick={() => setIsEditing(false)}
+            data-test-id={"employee-form-cancel-button"}
           />
         </div>
       </form>
