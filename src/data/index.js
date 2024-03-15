@@ -5,6 +5,7 @@ const employeesData = [
     lastName: 'Jordon',
     email: 'susan@example.com',
     salary: '95000',
+    designation: "manager",
     date: '2019-04-11',
   },
   {
@@ -14,6 +15,7 @@ const employeesData = [
     email: 'adrienne@example.com',
     salary: '80000',
     date: '2019-04-17',
+    designation: "junior",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const employeesData = [
     email: 'rolf@example.com',
     salary: '79000',
     date: '2019-05-01',
+    designation: "senior",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const employeesData = [
     email: 'kent@example.com',
     salary: '56000',
     date: '2019-05-03',
+    designation: "manager",
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const employeesData = [
     email: 'arsenio@example.com',
     salary: '65000',
     date: '2019-06-13',
+    designation: "junior",
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ const employeesData = [
     email: 'laurena@example.com',
     salary: '120000',
     date: '2019-07-30',
+    designation: "senior",
   },
   {
     id: 7,
@@ -54,6 +60,7 @@ const employeesData = [
     email: 'george@example.com',
     salary: '90000',
     date: '2019-08-15',
+    designation: "manager",
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const employeesData = [
     email: 'jesica@example.com',
     salary: '60000',
     date: '2019-10-10',
+    designation: "junior",
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ const employeesData = [
     email: 'matthew@example.com',
     salary: '71000',
     date: '2019-10-15',
+    designation: "senior",
   },
   {
     id: 10,
@@ -78,6 +87,7 @@ const employeesData = [
     email: 'lyndsey@example.com',
     salary: '110000',
     date: '2020-01-15',
+    designation: "manager",
   },
 ];
 

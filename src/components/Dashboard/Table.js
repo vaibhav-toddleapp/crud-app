@@ -21,6 +21,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
             <th>Last Name</th>
             <th>Email</th>
             <th>Salary</th>
+            <th>Designation</th>
             <th>Date</th>
             <th colSpan={2} className="text-center">
               Actions
@@ -39,6 +40,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 <td data-test-id={"employee-last-name-col"}>{employee.lastName}</td>
                 <td data-test-id={"employee-email-col"}>{employee.email}</td>
                 <td data-test-id={"employee-salary-col"}>{formatter.format(employee.salary)}</td>
+                <td data-test-id={"employee-designation-col"}>{employee.designation}</td>
                 <td data-test-id={"employee-joining-date-col"}>{employee.date} </td>
                 <td className="text-right" data-test-id={"employee-edit-button"}>
                   <button

@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const Add = ({ employees, setEmployees, setIsAdding }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [salary, setSalary] = useState('');
-  const [date, setDate] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [salary, setSalary] = useState("");
+  const [date, setDate] = useState("");
+  const [designation, setDesignation] = useState("");
 
-  const handleAdd = e => {
+  const handleAdd = (e) => {
     e.preventDefault();
 
-    if (!firstName || !lastName || !email || !salary || !date) {
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !salary ||
+      !date ||
+      designation === "select" ||
+      designation === ""
+    ) {
       return Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'All fields are required.',
+        icon: "error",
+        title: "Error!",
+        text: "All fields are required.",
         showConfirmButton: true,
       });
     }
@@ -28,16 +37,17 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
       email,
       salary,
       date,
+      designation,
     };
 
     employees.push(newEmployee);
-    localStorage.setItem('employees_data', JSON.stringify(employees));
+    localStorage.setItem("employees_data", JSON.stringify(employees));
     setEmployees(employees);
     setIsAdding(false);
 
     Swal.fire({
-      icon: 'success',
-      title: 'Added!',
+      icon: "success",
+      title: "Added!",
       text: `${firstName} ${lastName}'s data has been Added.`,
       showConfirmButton: false,
       timer: 1500,
@@ -54,7 +64,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           type="text"
           name="firstName"
           value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
           data-test-id={"employee-form-first-name-input"}
         />
         <label htmlFor="lastName">Last Name</label>
@@ -63,7 +73,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           type="text"
           name="lastName"
           value={lastName}
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
           data-test-id={"employee-form-last-name-input"}
         />
         <label htmlFor="email">Email</label>
@@ -72,7 +82,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           type="email"
           name="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           data-test-id={"employee-form-email-input"}
         />
         <label htmlFor="salary">Salary ($)</label>
@@ -81,7 +91,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           type="number"
           name="salary"
           value={salary}
-          onChange={e => setSalary(e.target.value)}
+          onChange={(e) => setSalary(e.target.value)}
           data-test-id={"employee-form-salary-input"}
         />
         <label htmlFor="date">Date</label>
@@ -90,13 +100,32 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           type="date"
           name="date"
           value={date}
-          onChange={e => setDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
           data-test-id={"employee-form-date-input"}
         />
-        <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Add" data-test-id={"employee-form-submit-button"}/>
+        {/* Dropdown of designation, options will be: manager, junior, senior */}
+        <label htmlFor="designation">Designation</label>
+        <select
+          id="designation"
+          name="designation"
+          data-test-id="employee-form-designation-dropdown"
+          data-selected={designation}
+          value={designation}
+          onChange={(e) => setDesignation(e.target.value)}
+        >
+          <option value="select">Select</option>
+          <option value="manager">Manager</option>
+          <option value="junior">Junior</option>
+          <option value="senior">Senior</option>
+        </select>
+        <div style={{ marginTop: "30px" }}>
           <input
-            style={{ marginLeft: '12px' }}
+            type="submit"
+            value="Add"
+            data-test-id={"employee-form-submit-button"}
+          />
+          <input
+            style={{ marginLeft: "12px" }}
             className="muted-button"
             type="button"
             value="Cancel"
